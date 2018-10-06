@@ -30,9 +30,9 @@
 
 	<!-- Indexing information -->
 
-	<name>Sample Project</name>
-	<url>http://www.sample-project.com</url>
-	<description>This is D&amp;T's sample project.</description>
+	<name>Acme Shout</name>
+	<url>http://www.acme-shout.com</url>
+	<description>Users can use this system to shout.</description>
 	
 	<!-- Build commands -->
 

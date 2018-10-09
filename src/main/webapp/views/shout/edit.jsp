@@ -34,6 +34,10 @@
 	   onchange="document.getElementById('useOtherUsername').value = document.getElementById('otherUsername').value;" />
 	<form:errors path="username" cssClass="error" />
 	
+	<script>
+			document.getElementById('useOtherUsername').value = document.getElementById('otherUsername').value;
+	</script>
+	
 	<br>
 	
 	<form:label path="text">

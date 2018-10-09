@@ -16,23 +16,34 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<label for="usernamecheck" ><spring:message code="shout.usernamecheck" /></label>
-<input id="usernamecheck" type="checkbox" onclick="usernamecheckFunction('${username}')" checked />	
-
 <form:form action="shout/edit.do" modelAttribute="shout" >
 	
 	<form:label path="username" >
 		<spring:message code="shout.username" />
 	</form:label>
-	<form:input path="username" onload="usernamecheckFunction('${username}')" />
+	<spring:message code='shout.useusername.yes' var="yes" />
+	<spring:message code='shout.useusername.no' var="no" />
+	
+	<br>
+	
+	<form:radiobutton path="username" label="${yes}" value="${username}" />
+	
+	<br>
+	<form:radiobutton id="useOtherUsername" path="username" label="${no}" value="" />
+	   <input type="text" id="otherUsername" 
+	   onchange="document.getElementById('useOtherUsername').value = document.getElementById('otherUsername').value;" />
 	<form:errors path="username" cssClass="error" />
+	
+	<script>
+			document.getElementById('useOtherUsername').value = document.getElementById('otherUsername').value;
+	</script>
 	
 	<br>
 	
 	<form:label path="text">
 		<spring:message code="shout.text" />
 	</form:label>
-	<form:input path="text" />
+	<form:textarea path="text" />
 	<form:errors path="text" cssClass="error" />
 	
 	<br>

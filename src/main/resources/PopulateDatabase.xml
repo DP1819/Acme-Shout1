@@ -59,4 +59,24 @@
 	
 	<!-- Other domain beans come here -->	
 	
+	<!-- Shouts -->
+	
+	<bean id="shout1" class="domain.Shout">
+		<property name="username" value="Dovahkiin" />
+		<property name="text" value="FUS RO DAH" />
+		<property name="link" value="http://.com" />
+	</bean>
+	
+	<bean id="shout2" class="domain.Shout">
+		<property name="username" value="super" />
+		<property name="text" value="A supershout" />
+		<property name="link" value="http://localhost:8080/Acme-Shout" />
+	</bean>
+	
+	<bean id="shout3" class="domain.Shout">
+		<property name="username" value="customer" />
+		<property name="text" value="aaaaaaaaaaaaaaaaaaa" />
+		<property name="link" value="http://localhost:8080/Acme-Shout/actor/random-quotes.do" />
+	</bean>
+	
 </beans>

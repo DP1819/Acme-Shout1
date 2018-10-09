@@ -10,13 +10,22 @@
 
 package controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+import services.ShoutService;
+
 @Controller
 @RequestMapping("/administrator")
 public class AdministratorController extends AbstractController {
+
+	// Service
+
+	@Autowired
+	private ShoutService	shoutService;
+
 
 	// Constructors -----------------------------------------------------------
 
@@ -44,6 +53,17 @@ public class AdministratorController extends AbstractController {
 		result = new ModelAndView("administrator/action-2");
 
 		return result;
+	}
+
+	// Dashboard
+
+	@RequestMapping("dashboard")
+	public ModelAndView dashboard() {
+		final ModelAndView res = new ModelAndView("administrator/dashboard");
+		res.addObject("numberShouts", this.shoutService.numberShouts());
+		res.addObject("numberLongShouts", this.shoutService.numberLongShouts());
+		res.addObject("numberShortShouts", this.shoutService.numberShortShouts());
+		return res;
 	}
 
 }

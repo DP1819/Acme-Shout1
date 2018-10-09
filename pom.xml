@@ -19,9 +19,7 @@
 
 	<!-- Artifact identification and properties -->
 
-	<groupId>Acme.com</groupId>
-	<artifactId>Acme-Shout</artifactId>
-	<version>0.0.0-SNAPSHOT</version>
+	<version>1.18</version>
 	<packaging>war</packaging>
 	
 	<properties>
@@ -30,9 +28,8 @@
 
 	<!-- Indexing information -->
 
-	<name>Acme Shout</name>
 	<url>http://www.acme-shout.com</url>
-	<description>Users can use this system to shout.</description>
+	<description>This is D&amp;T's sample project.</description>
 	
 	<!-- Build commands -->
 
@@ -313,4 +310,7 @@
 		
 	</dependencies>
 
+	<groupId>Acme.com</groupId>
+	<artifactId>Acme-Shout</artifactId>
+	<name>Acme-Shout</name>
 </project> 

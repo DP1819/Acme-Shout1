@@ -16,18 +16,18 @@
 <%@taglib prefix="security" uri="http://www.springframework.org/security/tags"%>
 <%@taglib prefix="display" uri="http://displaytag.sf.net"%>
 
-<input type="text" id="x" />
-<br>
-<select id="operator" >
-    <option label="---" value="" >---</option>
-	<option label="+" value="+" >+</option>
-	<option label="-" value="-" >-</option>
-	<option label="*" value="*" >*</option>
-	<option label="/" value="/" >/</option>
-</select>
-<br>
-<input type="text" id="y" />
-<p> = </p>
-<p id="result"></p>
-<br>
-<button onclick="calculator()" ><spring:message code="actor.compute" /></button>
+<form:form modelAttribute="calculator">
+	<form:input path="x"/> <form:errors path="x" class="error" /> <br />
+	<form:input path="y"/> <form:errors path="y" class="error" /> <br />
+	<form:select path="operator">
+		<form:option value="+" />
+		<form:option value="-" />
+		<form:option value="*" />
+		<form:option value="/" />
+	</form:select>
+	<form:errors path="operator" class="error" /> <br />
+	<hr />
+	<jstl:out value="${calculator.result}" />
+	<br />
+	<input type="submit" value="<spring:message code='actor.compute'/>" />
+</form:form>

@@ -6,9 +6,15 @@ import java.util.HashSet;
 import java.util.Random;
 import java.util.Set;
 
+import javax.validation.Valid;
+
 import org.springframework.stereotype.Controller;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import domain.Calculator;
 
 @Controller
 @RequestMapping("actor")
@@ -29,9 +35,30 @@ public class ActorController extends AbstractController {
 	}
 
 	@RequestMapping("calculator")
-	public ModelAndView calculator() {
-		final ModelAndView res = new ModelAndView("actor/calculator");
-		return res;
+	public ModelAndView action2Get() {
+		ModelAndView result;
+		Calculator calculator;
+
+		calculator = new Calculator();
+
+		result = new ModelAndView("actor/calculator");
+		result.addObject("calculator", calculator);
+
+		return result;
+	}
+
+	@RequestMapping(value = "calculator", method = RequestMethod.POST)
+	public ModelAndView action2Post(@Valid final Calculator calculator, final BindingResult binding) {
+
+		ModelAndView result;
+
+		calculator.compute();
+
+		result = new ModelAndView("actor/calculator");
+		result.addObject("calculator", calculator);
+
+		return result;
+
 	}
 
 	@RequestMapping("exception")
